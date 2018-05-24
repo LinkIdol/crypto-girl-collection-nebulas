@@ -1,4 +1,4 @@
-import web3 from '@/web3';
+// import web3 from '@/web3';
 import { BigNumber } from 'bignumber.js';
 
 /* eslint-disable import/prefer-default-export */

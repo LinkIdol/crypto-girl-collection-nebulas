@@ -1,9 +1,9 @@
-# 币娘 Collection
+# Link Idol
 
-[![Join our Telegram](https://icon-icons.com/icons2/555/PNG/32/telegram_icon-icons.com_53603.png)](https://t.me/CryptoGirl_Official)
+[![Join our Telegram](https://icon-icons.com/icons2/555/PNG/32/telegram_icon-icons.com_53603.png)](https://t.me/LinkIdol_Official)
 [![Join our Discord](https://www.shareicon.net/data/32x32/2016/12/30/866945_game_512x512.png)](https://discord.gg/nMXUYGQ)
 
-币娘 Collection的 Github Repo，最终解释权归 Andoromeda Foundation 所有。
+Link Idol的 Github Repo，最终解释权归 Andoromeda Foundation 所有。
 
 [English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-jp.md)
 
@@ -43,17 +43,17 @@ npm run deploy
 # 常见问题
 ## 基础
 
-### 1.如何开始玩币娘 Collection？
+### 1.如何开始玩Link Idol？
 
-开始你在币娘 Collection世界中的征途你需要：
+开始你在Link Idol世界中的征途你需要：
 
 *   安装有Chrome或者Firefox桌面版本的计算机或笔记本电脑；
 *   安装MetaMask，专门与网页应用共同使用的数字钱包；
-*   以太币，为币娘 Collection提供支持的数字货币。
+*   以太币，为Link Idol提供支持的数字货币。
 
 ### 2.安装MetaMask数字钱包
 
-要想使用币娘 Collection，您需要安装数字钱包MetaMask。您需要在MetaMask充值来进行您的首次购买。
+要想使用Link Idol，您需要安装数字钱包MetaMask。您需要在MetaMask充值来进行您的首次购买。
 
 **注意**: 像MetaMask这样的数字钱包的功能与银行账户是一致的—请谨慎从事并确保不要忘记您的密码或种子词。
 
@@ -61,7 +61,7 @@ npm run deploy
 
 **仅适用于美国公民**：您可以在MetaMask中购买以太币（ETH）。ETH是一个数字货币，使我们的游戏运行成为可能。
 
-**对于其他人而言**: 您将需要从交易所购买ETH, 然后从您的交易所钱包将ETH转入您的MetaMask钱包。遗憾的是，您无法只使用交易账户来玩币娘 Collection。
+**对于其他人而言**: 您将需要从交易所购买ETH, 然后从您的交易所钱包将ETH转入您的MetaMask钱包。遗憾的是，您无法只使用交易账户来玩Link Idol。
 
 ### 4.向MetaMask中添加以太币
 
@@ -75,25 +75,25 @@ npm run deploy
 
 因此现在大部分加密游戏都只将用户的资产保存在区块链上。
 
-## 了解币娘 Collection
+## 了解Link Idol
 
-### 1.币娘 Collection是什么？
+### 1.Link Idol是什么？
 
 《萌娘》，是中国以白话文写成的章回小说，列为中国古典四大文学名著之一，六才子书之一。其内容讲述北宋山东梁山泊以宋江为首的绿林好汉，由被逼落草，发展壮大，直至受到朝廷招安，东征西讨的历程。
 
 萌娘卡牌是每个80后中国人共同的美好回忆。
 
-币娘 Collection是一款在区块链上购买获得萌娘英雄卡牌并且能够因此获得以太币奖励的卡牌游戏。通过智能合约技术确定：每一张卡牌都是独一无二的，并且对应一个萌娘中的超级英雄！一旦您购买了一张萌娘英雄卡牌，您现在就拥有了该卡牌的所有权。你可以在自己的卡牌上留言，以表达自己的态度，展现萌娘精神！
+Link Idol是一款在区块链上购买获得萌娘英雄卡牌并且能够因此获得以太币奖励的卡牌游戏。通过智能合约技术确定：每一张卡牌都是独一无二的，并且对应一个萌娘中的超级英雄！一旦您购买了一张萌娘英雄卡牌，您现在就拥有了该卡牌的所有权。你可以在自己的卡牌上留言，以表达自己的态度，展现萌娘精神！
 
 如果有人购买您的卡牌，您将失去所有权，但是可以由此赚回更多的投资回报进入你的 MetaMask 钱包。
 
-币娘 Collection每日上新，所有玩家都可以在上新时用很少的 ETH 参与游戏，并赢取甚至超过 200% 以上的收益。如果你是小玩家，我们给你参与游戏并且本金翻倍的机会。如果你是大玩家，每次转手有 20% 的收益，并且可持续持有盈利。
+Link Idol每日上新，所有玩家都可以在上新时用很少的 ETH 参与游戏，并赢取甚至超过 200% 以上的收益。如果你是小玩家，我们给你参与游戏并且本金翻倍的机会。如果你是大玩家，每次转手有 20% 的收益，并且可持续持有盈利。
 
 获得卡牌的玩家，将有权利修改卡牌下方的广告位。
 
 因此，简而言之，这是一个让您玩的越多赚的越多的卡牌游戏。
 
-### 2.我们为什么要建立币娘 Collection？
+### 2.我们为什么要建立Link Idol？
 
 我们相信区块链是未来金融发展的方向，
 
@@ -101,7 +101,7 @@ npm run deploy
 
 甚至不太看好。
 
-而我们想让更多的华人，通过币娘 Collection这款游戏，了解并且熟知区块链。
+而我们想让更多的华人，通过Link Idol这款游戏，了解并且熟知区块链。
 
 至于我们为什么要用萌娘英雄，
 
@@ -109,15 +109,15 @@ npm run deploy
 
 萌娘精神不仅代是中华民族自古以来所崇尚的侠义精神，敢于挑战权威和敢于反抗的精神，正如同区块链技术对现实世界的挑战。
 
-所以，说不定你能在币娘 Collection中找到它。每个人心中都有一个成为英雄的梦想，而这个世界需要更多的英雄！
+所以，说不定你能在Link Idol中找到它。每个人心中都有一个成为英雄的梦想，而这个世界需要更多的英雄！
 
-### 3.为什么您要选币娘 Collection？
+### 3.为什么您要选Link Idol？
 
 每一个90后的中国人都有过集换萌娘卡的美好回忆，现在基于智能合约技术，你就可以真正得拥有他！找回童年心目中的英雄。
 
-### 4.币娘 Collection的意义？
+### 4.Link Idol的意义？
 
-币娘 Collection的产生基于区块链金融，区块链技术被认为是继蒸汽机、电力、互联网之后，下一代颠覆性的核心技术。 如果说蒸汽机释放了人们的生产力，电力解决了人们基本的生活需求，互联网彻底改变了信息传递的方式，那么区块链作为构造信任的机器，将可能彻底改变整个人类社会价值传递的方式。区块链金融未来可能改变传统经济的格局，迎来一个新的金融时代。
+Link Idol的产生基于区块链金融，区块链技术被认为是继蒸汽机、电力、互联网之后，下一代颠覆性的核心技术。 如果说蒸汽机释放了人们的生产力，电力解决了人们基本的生活需求，互联网彻底改变了信息传递的方式，那么区块链作为构造信任的机器，将可能彻底改变整个人类社会价值传递的方式。区块链金融未来可能改变传统经济的格局，迎来一个新的金融时代。
 
 ### 5.如何购买
 
@@ -159,7 +159,7 @@ npm run deploy
 
 ### 5.未来规划
 
-在币娘 Collection卡牌全部发行完毕后，我们会在币娘 Collection卡牌的基础上加入更多玩法，敬请期待！
+在Link Idol卡牌全部发行完毕后，我们会在Link Idol卡牌的基础上加入更多玩法，敬请期待！
 
 ## 进阶
 
@@ -169,4 +169,4 @@ npm run deploy
 
 ### 2.什么是 ERC721 Token
 
-ERC721代币的核心是 “Non-Fungible Tokens”，非同质代币。怎么理解“非同质”？币娘 Collection为例，每张卡牌都是独一无二的。从原理上来看，每账卡牌在区块链平台上都是一条独一无二的代码。而且，ERC721 每个代币都有一个独立唯一的 tokenid，例如在币娘 Collection里就是每个卡牌的 id，独一无二。
+ERC721代币的核心是 “Non-Fungible Tokens”，非同质代币。怎么理解“非同质”？Link Idol为例，每张卡牌都是独一无二的。从原理上来看，每账卡牌在区块链平台上都是一条独一无二的代码。而且，ERC721 每个代币都有一个独立唯一的 tokenid，例如在Link Idol里就是每个卡牌的 id，独一无二。

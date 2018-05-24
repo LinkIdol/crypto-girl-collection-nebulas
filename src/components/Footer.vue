@@ -29,7 +29,7 @@
         <div class="column is-4">
           <div class="content">
             <span> {{$t('Contact Us')}}</span>
-            <p><a href="http://t.me/CryptoGirl_Official"
+            <p><a href="http://t.me/LinkIdol_Official"
                target="_blank">
               @Telegram
             </a></p>
@@ -46,7 +46,7 @@
           <small>
             All rights reserved. <br>
             &copy; Copyright 2018
-            <strong>CryptoGirl.pro</strong>
+            <strong>LinkIdol.pro</strong>
           </small>
         </p>
       </div>

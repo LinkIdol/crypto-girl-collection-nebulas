@@ -3,7 +3,7 @@ const PRIVACY_CONTENT = require('raw-loader!./privacy.html');
 const TERMS_CONTENT = require('raw-loader!./terms.html');
 
 module.exports = {
-  CryptoGirl: '币娘 Collection',
+  LinkIdol: 'Link Idol',
   'My Cards': '我的卡牌',
   'Sign In': '登录游戏',
   Home: '首页',

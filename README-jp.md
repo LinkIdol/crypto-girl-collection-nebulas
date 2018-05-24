@@ -1,6 +1,6 @@
 # 仮想通貨少女
 
-[![Join our Telegram](https://icon-icons.com/icons2/555/PNG/32/telegram_icon-icons.com_53603.png)](https://t.me/CryptoGirl_Official)
+[![Join our Telegram](https://icon-icons.com/icons2/555/PNG/32/telegram_icon-icons.com_53603.png)](https://t.me/LinkIdol_Official)
 [![Join our Discord](https://www.shareicon.net/data/32x32/2016/12/30/866945_game_512x512.png)](https://discord.gg/nMXUYGQ)
 
 仮想通貨少女のGithub Repo、最終の解釈権は Andoromeda Foundation に所有する。
