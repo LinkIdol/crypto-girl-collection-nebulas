@@ -32,20 +32,27 @@ export const asyncGetAddr = () => new Promise((resolve, reject) => {
   });
 });
 
-export async function get(from) {
+async function callContractMethod({ functionName, args }) {
+  const from = await asyncGetAddr();
   const to = network.mainnet.address;
   const other = {
     value: '0',
     nonce: 0,
     gasPrice: '1000000',
     gasLimit: '2000000',
-    contract: { function: 'get', args: '[""]' },
+    contract: { function: functionName, args: JSON.stringify(args) },
   };
   const { body } = await request
     .post('https://mainnet.nebulas.io/v1/user/call')
     .send(Object.assign({ from, to }, other));
 
   const { result } = body.result;
+  const value = JSON.parse(result);
+  return value;
+}
+
+export async function get() {
+  const result = await callContractMethod({ functionName: 'get', args: [] });
   const value = JSON.parse(result);
   console.log(value);
   return value;
