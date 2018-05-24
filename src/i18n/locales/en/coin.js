@@ -7,14 +7,18 @@ module.exports = {
     DOB: 'Date of birth',
     consensus: 'Consensus',
     price: 'Current Price',
+    info: 'Infomation',
   },
   consensus: {
     PoW: 'Proof of Work',
     PoS: 'Proof of Stake',
     DPoS: 'Delegated Proof of Stake',
   },
-  fiatSymbol: {
+  symbol: {
     CNY: 'CNY',
     USD: 'USD',
+  },
+  name: {
+    'Satoshi Nakamoto': 'Satoshi Nakamoto',
   },
 };
