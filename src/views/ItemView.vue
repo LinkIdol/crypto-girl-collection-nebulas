@@ -33,23 +33,6 @@
                 </div>
               </div>
             <!-- Experimental End -->
-
-             <!-- <router-link :to="{ name: 'User', params:{address: item.owner}}">
-            <figure class="image is-128x128">
-              <img class="item-image"
-              :src="getOwnerAvatar">
-            </figure>
-            </router-link>
-            <ul>
-              <li>{{$t('Owner')}}：
-                <router-link :to="{ name: 'User', params:{address: item.owner}}">
-                  {{ownerTag}}
-                </router-link>
-              </li>
-              <li>{{$t('Current Price')}}：{{toDisplayedPrice(item.price)}}</li>
-              <li>{{$t('isLuckyClaim')}}：{{ isConvert ? 'Yes' : 'No'}}</li>
-            </ul>
-            <p class="item-slogan">{{$t('Slogan')}}: {{ad}}</p> -->
             <article v-if="notOwner"
                      class="message is-warning">
               <div class="message-body">

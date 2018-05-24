@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar is-light">
+    <nav class="navbar is-dark">
       <div class="navbar-brand">
         <router-link class="navbar-item"
                      :to="{ name: 'Home'}">
@@ -33,6 +33,11 @@
         <router-link class="navbar-item"
                      :to="{ name: 'FAQ'}">
           {{$t('FAQs')}}
+        </router-link>
+
+        <router-link class="navbar-item"
+                     :to="{ name: 'Rank'}">
+          {{$t('Ranking')}}
         </router-link>
 
       </div>
@@ -130,6 +135,12 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+.navbar {
+  background-color: #91cbe9;
+  color: #fafafa !important;
+}
+.navbar-item {
+    color: #ffffff !important;
+}
 </style>

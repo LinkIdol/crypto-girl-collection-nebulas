@@ -10,6 +10,7 @@ import TermView from '@/views/TermView';
 import PrivacyView from '@/views/PrivacyView';
 import BirthdayGiftView from '@/views/BirthdayGiftView';
 import LuckyDraw from '@/views/LuckyDraw';
+import CoinProfile from '@/views/CoinProfile';
 
 Vue.use(Router);
 
@@ -45,6 +46,11 @@ export default new Router({
       name: 'Item',
       path: '/item/:id(\\d+)',
       component: ItemView,
+    },
+    {
+      name: 'CoinProfile',
+      path: '/coin/:name',
+      component: CoinProfile,
     },
     {
       name: 'User',
