@@ -2,7 +2,7 @@
     .item-view(v-if="isOnList")
         .columns.is-multiline.is-mobile
             .column.is-full-mobile
-                img(src="http://test.cdn.hackx.org/heros/1.jpg")
+                img(src="https://i.loli.net/2018/05/24/5b06e0b1af5d5.png")
             .column.is-full-mobile
                 .content
                     h1.title| {{coinName}} {{$t('coin.profile')}}
@@ -45,7 +45,11 @@ export default {
       const { coinName } = this;
       return coinProfile[coinName];
     },
-    fiatSymbol() { return this.marketData.fiatSymbol; },
+    fiatSymbol() {
+      const { $t, marketData } = this;
+      const symbol = marketData.fiatSymbol;
+      return $t(`coin.symbol.${symbol}`);
+    },
     coinData() {
       const { $t, getPrice, fiatSymbol, coinName, getCoinProfile } = this;
       const name = { k: $t('coin.fields.code'), v: coinName };
@@ -56,8 +60,9 @@ export default {
         v: $t(`coin.consensus.${getCoinProfile.consensus}`),
       };
       const price = { k: $t('coin.fields.price'), v: `${getPrice} ${fiatSymbol}` };
+      const info = { k: $t('coin.fields.info'), v: getCoinProfile.info };
 
-      return [name, dob, founder, consensus, price];
+      return [name, dob, founder, consensus, price, info];
     },
     coinProfile() {
       const { coinName } = this;

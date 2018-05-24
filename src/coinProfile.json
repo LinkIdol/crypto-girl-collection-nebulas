@@ -4,7 +4,8 @@
         "fullname": "Bitcoin",
         "founder": "Satoshi Nakamoto",
         "DOB": "2009-01-03",
-        "consensus": "PoW"
+        "consensus": "PoW",
+        "info": "In Nov. 2008, a guy named Satoshi Nakamoto announced his idea about cryptocurrency."
     },
     "ETH": {
         "id": 1027,
