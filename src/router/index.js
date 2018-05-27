@@ -13,7 +13,6 @@ import CoinProfile from '@/views/CoinProfile';
 
 import HomePage from '@/views/HomePage';
 import MyCollectionPage from '@/views/MyCollectionPage';
-import CoinProfile from '@/views/CoinProfile';
 import RankingList from '@/views/RankingList';
 Vue.use(Router);
 
