@@ -1,4 +1,4 @@
-import Promise from 'bluebird';
+// import Promise from 'bluebird';
 import Cookie from 'js-cookie';
 // import * as config from '@/config';
 import request from 'superagent';
@@ -57,6 +57,7 @@ export async function get() {
   console.log(value);
   return value;
 }
+
 
 
 export const getLocale = async () => (
