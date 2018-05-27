@@ -1,10 +1,6 @@
 <template>
   <header>
-<<<<<<< HEAD
-    <nav class="navbar is-dark">
-=======
     <nav class="navbar">
->>>>>>> eth/testing
       <div class="navbar-brand">
         <router-link class="navbar-item"
                      :to="{ name: 'Home'}">
@@ -54,11 +50,7 @@
         <router-link class="navbar-item"
                      :to="{ name: 'Rank'}">
           {{$t('Ranking')}}
-<<<<<<< HEAD
-        </router-link>
-=======
         </router-link> -->
->>>>>>> eth/testing
 
       </div>
 
@@ -161,10 +153,6 @@ export default {
   color: #fafafa !important;
 }
 .navbar-item {
-<<<<<<< HEAD
-    color: #ffffff !important;
-=======
     color: #0787c8 !important;
->>>>>>> eth/testing
 }
 </style>

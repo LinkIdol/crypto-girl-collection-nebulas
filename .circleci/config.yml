@@ -63,11 +63,11 @@ jobs:
             cd ./dist/dist 
             git config --global user.email "bot@frankwei.xyz"
             git config --global user.name "Circle CI Deploy Bot"
-            echo "linkidol.pro" >> CNAME # add custom domain
+            echo "nas.linkidol.pro" >> CNAME # add custom domain
             git init
             git add .
             git commit -m "Update website"
-            git push --force --quiet git@github.com:LinkIdol/website-eth.git master:master
+            git push --force --quiet git@github.com:LinkIdol/website-nas.git master:master
       
 
 
