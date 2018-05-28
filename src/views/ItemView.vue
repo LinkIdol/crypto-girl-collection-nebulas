@@ -25,8 +25,10 @@
                   <div class="media">
                     <div class="media-content">
                       <p class="title is-4">{{$t('Owner')}} {{ownerTag}}</p>
-                      <p class="subtitle is-6"> {{$t('Current Price')}}：{{toDisplayedPrice(item.price)}} </p>
-                      <p class="subtitle is-6"> {{$t('isLuckyClaim')}}: {{ isConvert ? 'Yes' : 'No'}} </p>
+                      <p class="subtitle is-6">
+                        {{$t('Current Price')}}：{{toDisplayedPrice(item.price)}} </p>
+                      <p class="subtitle is-6">
+                        {{$t('isLuckyClaim')}}: {{ isConvert ? 'Yes' : 'No'}} </p>
                       <p class="subtitle is-6"> {{$t('Slogan')}}: {{ad}} </p>
                     </div>
                   </div>
@@ -87,7 +89,7 @@
 
 <script>
 import { exchangeLuckyToken, setGg, setNextPrice } from '@/api';
-import CryptoGirlContract from '@/contract/CryptoGirlContract';
+// import CryptoGirlContract from '@/contract/CryptoGirlContract';
 import { toReadablePrice } from '@/util';
 import Dravatar from 'dravatar';
 
@@ -147,7 +149,7 @@ export default {
 
   methods: {
     async onBuy(rate) {
-      const contract = new CryptoGirlContract();
+      const contract = {};
       await contract.initialize();
 
       if (this.$store.state.signInError) {

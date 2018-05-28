@@ -22,7 +22,7 @@
 <script>
 // import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
 import request from 'superagent';
-import coinProfile from '@/coinProfile';
+import coinProfile from '@/coinProfile.json';
 
 export default {
   name: 'item-view',
@@ -77,7 +77,6 @@ export default {
     },
   },
   async created() {
-    console.log();
     this.marketData = await this.getCoinMarketData();
   },
 

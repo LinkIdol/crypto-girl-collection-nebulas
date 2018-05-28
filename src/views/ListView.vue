@@ -12,7 +12,7 @@
 <script>
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import ItemList from '@/components/ItemList';
-import CryptoGirlContract from '@/contract/CryptoGirlContract';
+// import CryptoGirlContract from '@/contract/CryptoGirlContract';
 // import { getTotal, getItemIds } from '@/api';
 // import { toReadablePrice } from '@/util';
 
@@ -33,7 +33,7 @@ export default {
   computed: {},
 
   async created() {
-    const contract = new CryptoGirlContract();
+    const contract = {};
     await contract.initialize();
     const total = await contract.getTotal();
     const itemIds = await contract.getItemIds(0, total);

@@ -5,7 +5,7 @@
         "code": "XPM",
         "color": "#ebe5b0",
         "textcolor": "#b8a909",
-        "img": "../../static/assets/girlcards/card_xpm.png"
+        "img": "http://static.togetthere.cn/card_xpm.png"
 	},
 	"2":{
         "id": 2,
@@ -13,7 +13,7 @@
         "code": "SARI",
         "color": "#aedfe8",
         "textcolor": "#3199af",
-        "img": "../../static/assets/girlcards/card_sari.png"
+        "img": "http://static.togetthere.cn/card_sari.png"
 	},
 	"3":{
         "id": 3,
@@ -21,7 +21,7 @@
         "code": "DGC",
         "color": "#e8c0af",
         "textcolor": "#b47a68",
-        "img": "../../static/assets/girlcards/card_doge.png"
+        "img": "http://static.togetthere.cn/card_doge.png"
 	},
 	"4":{
         "id": 4,
@@ -29,7 +29,7 @@
         "code": "BlockChain",
         "color": "#aec9e9",
         "textcolor": "#5381b7",
-        "img": "../../static/assets/girlcards/card_block.png"
+        "img": "http://static.togetthere.cn/card_block.png"
 	},
 	"5":{
         "id": 5,
@@ -37,7 +37,7 @@
         "code": "ETH",
         "color": "#bbe7ae",
         "textcolor": "#59904c",
-        "img": "../../static/assets/girlcards/card_eth.png"
+        "img": "http://static.togetthere.cn/card_eth.png"
 	},
 	"6":{
         "id": 6,
@@ -45,6 +45,6 @@
         "code": "BTC",
         "color": "#ebd4b0",
         "textcolor": "#d48e18",
-        "img": "../../static/assets/girlcards/card_btc.png"
+        "img": "http://static.togetthere.cn/card_btc.png"
 	}
 }

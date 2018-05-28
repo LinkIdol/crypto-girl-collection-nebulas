@@ -33,7 +33,6 @@
 
 <script>
 import ItemList from '@/components/ItemList';
-import Contract from '@/contract/CryptoGirlContract';
 import getAvatarFromAddress from 'dravatar';
 
 export default {
@@ -63,7 +62,7 @@ export default {
     },
   },
   async created() {
-    this.contract = new Contract();
+    this.contract = {};
     await this.contract.initialize();
     this.itemIds = await this.fetchItems();
   },
@@ -73,7 +72,6 @@ export default {
   methods: {
     async fetchItems() {
       const items = await this.contract.getItemsOf(this.$route.params.address);
-      console.log(items);
       return items;
     },
   },

@@ -3,8 +3,18 @@ import NebPay from '@/lib/nebpay';
 
 const nebPay = new NebPay();
 
+const networkSetting = {
+  mainnet: {
+    rpcApi: 'https://mainnet.nebulas.io',
+  },
+  testnet: {
+    rpcApi: 'https://testnet.nebulas.io',
+  },
+};
+
 export default class Contract {
-  constructor(contractAddress) {
+  constructor({ network = 'mainnet', contractAddress }) {
+    this.api = networkSetting[network].rpcApi;
     this.contractAddress = contractAddress;
   }
 
@@ -17,11 +27,13 @@ export default class Contract {
      * @param: functionName - The name of the function
      * @param: args - Function arguement, please enter arguement in ordered array
      */
-  async callContractMethod({
+  async call({
     from = 'n1Z6SbjLuAEXfhX1UJvXT6BB5osWYxVg3F3', //
     functionName,
-    args = [] }) {
-    const to = this.contractAddress;
+    args = [],
+  }) {
+    const { contractAddress, api } = this;
+    const to = contractAddress;
     const txParams = {
       value: '0',
       nonce: 0,
@@ -30,12 +42,10 @@ export default class Contract {
       contract: { function: functionName, args: JSON.stringify(args) },
     };
     const { body } = await request
-      .post('https://mainnet.nebulas.io/v1/user/call')
+      .post(`${api}/v1/user/call`)
       .send(Object.assign({ from, to }, txParams));
 
-    const { result } = body.result;
-    const value = JSON.parse(result);
-    return value;
+    return body.result.result;
   }
   /**
      * send({ functionName, value = 0, data, options = { listener: undefined } }})
