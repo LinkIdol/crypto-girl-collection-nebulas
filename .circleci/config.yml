@@ -51,7 +51,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "37:d8:ac:90:63:4c:98:36:de:c7:d8:a8:88:87:ef:b1"
+            - "0d:e4:bb:a0:de:33:76:b7:8f:26:cb:d0:74:48:06:ec"
       - attach_workspace: 
           at: ~/repo/dist
       - run:

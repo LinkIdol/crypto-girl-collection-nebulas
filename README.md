@@ -1,4 +1,4 @@
-# LinkIdol
+# LinkIdol-Nebulas Version
 
 [![Join our Telegram](https://icon-icons.com/icons2/555/PNG/32/telegram_icon-icons.com_53603.png)](https://t.me/LinkIdol_Official)
 [![Join our Discord](https://www.shareicon.net/data/32x32/2016/12/30/866945_game_512x512.png)](https://discord.gg/nMXUYGQ)
@@ -6,6 +6,10 @@
 This repo is for LinkIdol, and copyright is owned by Andoromeda Foundation.
 
 [English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-jp.md)
+
+ [Stable Version](http://nas.linkidol.pro/#/)
+
+ [Developing Version](http://nas-testing.linkidol.pro/#/)
 
 # About Open Source Project Announcement
 This project is a Vue.js project which changed to public on March 9, 2018. Fully access and can be forked.
