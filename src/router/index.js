@@ -1,19 +1,22 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import ItemView from '@/views/ItemView';
-import ListView from '@/views/ListView';
-import LoginView from '@/views/LoginView';
-import FaqView from '@/views/FaqView';
-import UserView from '@/views/UserView';
-import TermView from '@/views/TermView';
-import PrivacyView from '@/views/PrivacyView';
-import BirthdayGiftView from '@/views/BirthdayGiftView';
-import LuckyDraw from '@/views/LuckyDraw';
+// import ItemView from '@/views/ItemView';
+// import ListView from '@/views/ListView';
+// import LoginView from '@/views/LoginView';
+// import FaqView from '@/views/FaqView';
+// import UserView from '@/views/UserView';
+// import TermView from '@/views/TermView';
+// import PrivacyView from '@/views/PrivacyView';
+// import BirthdayGiftView from '@/views/BirthdayGiftView';
+// import LuckyDraw from '@/views/LuckyDraw';
 import CoinProfile from '@/views/CoinProfile';
 
+import ReferralView from '@/views/Referral';
 import HomePage from '@/views/HomePage';
 import MyCollectionPage from '@/views/MyCollectionPage';
+
 import RankingList from '@/views/RankingList';
+
 Vue.use(Router);
 
 export default new Router({
@@ -33,6 +36,16 @@ export default new Router({
       name: 'CoinProfile',
       path: '/coin/:name',
       component: CoinProfile,
+    },
+    {
+      name: 'ReferralTo',
+      path: '/referral/:address',
+      component: ReferralView,
+    },
+    {
+      name: 'Referral',
+      path: '/referral/',
+      component: ReferralView,
     },
     {
       name: 'Collection',
