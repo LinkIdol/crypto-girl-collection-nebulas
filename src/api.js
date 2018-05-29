@@ -39,10 +39,19 @@ export const setLocale = async (locale) => {
 
 export async function getCoinMarketData({ coinName, fiatSymbol = 'CNY' }) {
   const coinData = coinProfile[coinName];
-  const { id } = coinData;
+  const { cmcId } = coinData;
   const { body } = await request
-    .get(`https://api.coinmarketcap.com/v2/ticker/${id}/`)
+    .get(`https://api.coinmarketcap.com/v2/ticker/${cmcId}/`)
     .query({ convert: fiatSymbol });
   const marketData = body.data.quotes[fiatSymbol];
   return Object.assign(marketData, { fiatSymbol });
+}
+
+export async function getBlockchainMarketCap(fiatSymbol = 'USD') {
+  const { body } = await request
+    .get('https://api.coinmarketcap.com/v2/global/')
+    .query({ convert: fiatSymbol });
+  const { data } = body;
+  const price = data.quotes.USD.total_market_cap;
+  return price;
 }

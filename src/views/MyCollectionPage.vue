@@ -2,8 +2,14 @@
 <div>
 
 <section>
-  <div class="userContainer">
-    <div class="usericon" v-if="profile">
+  <div class="userContainer" v-if="!profile">
+    <div class="usercontent">
+      <h2 class="title">Loading Profile, please wait
+      </h2>
+    </div>
+  </div>
+  <div class="userContainer" v-else>
+    <div class="usericon" >
         <img class="iconimg" alt="" width="100" :src="profile.avatar"/>
       </div>
       <div class="usercontent">
@@ -16,16 +22,17 @@
   <section>
       <div class="columns is-multiline is-mobile section2div">
         <div class="column is-4-desktop is-4-tablet is-12-mobile cardItem"
-        v-for="item in itemIds" :key="item.id"
+        v-for="item in cardsInfo" :key="item.cmcId"
         @click="gotoCoinProfile(item.code)">
-          <img class="cardItemImg" alt="" :src="item.img"/>
+          <img class="cardItemImg" alt="" :src="item.card"/>
           <div :style="{ backgroundColor: item.color, height: '50px' }">
             <span>
             <a :style="{ lineHeight: '50px', color: item.textcolor, paddingLeft: '20px' }">
-              {{ item.name }}{{ item.code }}</a>
+              {{ $t(`coin.name.${item.fullname}`) }} {{ item.code }}</a>
           </span>
           <span class="priceSpan">
-              <a :style="{ lineHeight: '50px', color: item.textcolor }">{{ item.name }}USD</a>
+              <a :style="{ lineHeight: '50px', color: item.textcolor }">
+                市价: {{ item.price }} USD</a>
           </span>
           </div>
         </div>
@@ -38,16 +45,26 @@
 <script>
 import { mapState } from 'vuex';
 import NasId from '@/contract/nasid';
+import LinkIdol from '@/contract/linkidol';
 
 export default {
   name: 'MyCollectionPage',
   data: () => ({
+    items: [],
     itemIds: [],
   }),
+  // async created() {
+
+  // },
   asyncComputed: {
     async profile() {
       const nasId = new NasId();
       const result = await nasId.fetchAccountDetail(this.address);
+      return result;
+    },
+    async cardsInfo() {
+      const idol = new LinkIdol();
+      const result = await idol.getCardsInfoByAddress(this.address);
       return result;
     },
   },

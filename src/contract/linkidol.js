@@ -1,9 +1,11 @@
 import { BigNumber } from 'bignumber.js';
+import coinProfile from '@/coinProfile.json';
+import { getCoinMarketData, getBlockchainMarketCap } from '@/api';
 import Contract from './contract';
 
 export default class LinkIdolContract extends Contract {
   constructor() {
-    super({ contractAddress: 'n1jC14u9KvnDVuNv1S6Pd8z5X3ebcGWp1jk', network: 'testnet' });
+    super({ contractAddress: 'n1oecF9SK8wUKxAcTVCYfvsvG3P6TmHWdzW', network: 'testnet' });
   }
 
   async draw(referrer = '') {
@@ -14,7 +16,6 @@ export default class LinkIdolContract extends Contract {
       args: [referrer],
     });
     if (isNaN(testResult)) {
-      alert(testResult);
       return false;
     }
     const result = await this.send(
@@ -41,9 +42,26 @@ export default class LinkIdolContract extends Contract {
   }
   async getCardsInfoByAddress(address) {
     const ids = await this.getTokenIDsByAddress(address);
-    const cardsInfo = await Promise.all(ids.map(async (id) => {
-      const name = await this.getCardNameByTokenId(id);
-      return { id, name };
+    const cardsInfo = await Promise.all(ids.map(async (tokenId) => {
+      const code = await this.getCardNameByTokenId(tokenId);
+      const { card, fullname, color, textColor } = coinProfile[code];
+      let price;
+      switch (code) {
+        case 'Blockchain': {
+          const result = await getBlockchainMarketCap();
+          price = result.toFixed(2);
+          break;
+        }
+        case 'SARI':
+          price = 'N/A';
+          break;
+        default: {
+          const result = await getCoinMarketData({ coinName: code });
+          price = result.price.toFixed(2);
+          break;
+        }
+      }
+      return { tokenId, price, code, card, fullname, color, textColor };
     }));
     return cardsInfo;
   }

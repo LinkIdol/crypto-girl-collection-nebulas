@@ -2,7 +2,7 @@
     .item-view(v-if="isOnList")
         .columns.is-multiline.is-mobile
             .column.is-full-mobile
-                img(src="https://i.loli.net/2018/05/24/5b06e0b1af5d5.png")
+                img(:src="getCoinProfile.card")
             .column.is-full-mobile
                 .content
                     h1.title| {{coinName}} {{$t('coin.profile')}}
@@ -21,7 +21,7 @@
 
 <script>
 // import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
-import request from 'superagent';
+import { getCoinMarketData } from '@/api';
 import coinProfile from '@/coinProfile.json';
 
 export default {
@@ -34,7 +34,9 @@ export default {
     },
   }),
 
-  asyncComputed: {},
+  asyncComputed: {
+
+  },
 
   computed: {
     getPrice() {
@@ -73,27 +75,17 @@ export default {
     },
     isOnList() {
       const { coinName } = this;
-      return ['EOS', 'ETH', 'BTC', 'BCH'].indexOf(coinName) > -1;
+      return ['EOS', 'ETH', 'BTC', 'BCH', 'XPM'].indexOf(coinName) > -1;
     },
   },
   async created() {
-    this.marketData = await this.getCoinMarketData();
+    const { coinName } = this;
+    this.marketData = await getCoinMarketData({ coinName, fiatSymbol: 'USD' });
   },
 
   watch: {},
 
   methods: {
-    async getCoinMarketData() {
-      const fiatSymbol = 'CNY';
-      const { coinName } = this;
-      const coinData = coinProfile[coinName];
-      const { id } = coinData;
-      const { body } = await request
-        .get(`https://api.coinmarketcap.com/v2/ticker/${id}/`)
-        .query({ convert: fiatSymbol });
-      const marketData = body.data.quotes[fiatSymbol];
-      return Object.assign(marketData, { fiatSymbol });
-    },
   },
 };
 </script>

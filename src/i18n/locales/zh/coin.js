@@ -21,5 +21,11 @@ module.exports = {
   },
   name: {
     'Satoshi Nakamoto': '中本聪',
+    Bitcoin: '比特币',
+    Ethereum: '以太坊',
+    Dogecoin: '狗狗币',
+    Primecoin: '素数币',
+    Blockchain: '区块链',
+    SARI: '萨莉',
   },
 };
