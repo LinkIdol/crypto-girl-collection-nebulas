@@ -1,4 +1,5 @@
 module.exports = {
+  fiatSymbol: 'CNY',
   profile: '的资料',
   fields: {
     code: '代号',
