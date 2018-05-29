@@ -15,6 +15,13 @@
         </router-link>
 
         <router-link
+        v-if="me"
+                     class="navbar-item"
+                     :to="{ name: 'Referral' }">
+          引荐计划
+        </router-link>
+
+        <router-link
         v-else
                      class="navbar-item"
                      :to="{ name: 'Collection' }">
@@ -96,7 +103,6 @@
 </template>
 
 <script>
-import { getAnnouncements } from '@/api';
 import { mapState } from 'vuex';
 
 export default {
@@ -112,12 +118,6 @@ export default {
 
 
     const infos = [];
-    const announcements = await getAnnouncements();
-    announcements.forEach(({ type, content }) => {
-      if (type === 'info') {
-        infos.push(content);
-      }
-    });
     this.infos = infos;
   },
   computed: {
