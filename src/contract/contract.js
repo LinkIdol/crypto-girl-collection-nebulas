@@ -58,7 +58,6 @@ export default class Contract {
   //   const result = await nebPay.simulateCall(this.contractAddress, value, functionName, args, {
   //     // desc: 'test goods',
   //   });
-  //   console.log(result);
   //   return result;
   // }
   /**
