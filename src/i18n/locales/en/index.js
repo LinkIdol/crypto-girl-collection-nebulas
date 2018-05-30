@@ -1,8 +1,8 @@
 const FAQs_CONTENT = require('raw-loader!./faq.html');
 const PRIVACY_CONTENT = require('raw-loader!./privacy.html');
 const TERMS_CONTENT = require('raw-loader!./terms.html');
-const coin = require('./coin')
-;
+const coin = require('./coin');
+
 module.exports = {
   LinkIdol: 'LinkIdol',
   'My Cards': 'My Cards',

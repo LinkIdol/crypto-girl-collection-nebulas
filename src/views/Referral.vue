@@ -7,8 +7,8 @@
                     h2.subtitle| 推荐好友玩 Link Idol 可获得 5% 消费额的奖励!
                     .field.has-addons
                         label.label|你的邀请链接:
-                        .control
-                            input.input(type="text" :value="myRefferalLink")
+                        .control(style="width: 75%")
+                            input.input(type="text" :value="myRefferalLink" disabled)
                         .control
                             button.button.is-success(:data-clipboard-text="myRefferalLink")| 复制链接
     #referral(v-else)
@@ -31,10 +31,6 @@ export default {
   created() {
     const clipboard = new Clipboard('.button');
     clipboard.on('success', (e) => {
-      console.info('Action:', e.action);
-      console.info('Text:', e.text);
-      console.info('Trigger:', e.trigger);
-
       e.clearSelection();
     });
   },

@@ -16,9 +16,9 @@ export const asyncGetAddr = () => new Promise((resolve) => {
     },
     method: 'getAccount',
   }, '*');
-  window.addEventListener('message', (e) => {
-    if (e.data.data.account) {
-      resolve(e.data.data.account);
+  window.addEventListener('message', ({ data }) => {
+    if (data.data && data.data.account) {
+      resolve(data.data.account);
     }
   });
 });

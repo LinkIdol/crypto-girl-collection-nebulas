@@ -7,6 +7,9 @@ export default class NasId extends Contract {
   }
 
   async fetchAccountDetail(address) {
+    if (address === null) {
+      return null;
+    }
     const result = await this.call({ from: address, functionName: 'get' });
     return JSON.parse(result);
   }
