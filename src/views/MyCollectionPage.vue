@@ -75,8 +75,11 @@ export default {
   },
   computed: {
     ...mapState({
-      address: state => state.me,
+      me: state => state.me,
     }),
+    address() {
+      return this.$route.params.address || this.me;
+    },
   },
   mounted() {
     this.$http.get('static/girl_cards.json').then((response) => {
