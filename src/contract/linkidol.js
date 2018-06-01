@@ -5,10 +5,13 @@ import Contract from './contract';
 
 export default class LinkIdolContract extends Contract {
   constructor() {
-    super({ contractAddress: 'n1oecF9SK8wUKxAcTVCYfvsvG3P6TmHWdzW', network: 'testnet' });
+    super({
+      contractAddress: 'n1tr1jn7sjcUECHabozo9hiB1zRSbtpYBx1',
+      network: 'testnet',
+    });
   }
 
-  async draw(referrer = '') {
+  async draw(referrer = 'n1MmUacQExJwkD1xHggwaEvTpKgUeSmV4Af') {
     const value = 0.001;
     const testResult = await this.call({
       functionName: 'luckyDraw',
@@ -33,11 +36,19 @@ export default class LinkIdolContract extends Contract {
   }
 
   async getTokenIDsByAddress(address) {
-    const result = await this.call({ functionName: 'getTokenIDsByAddress', args: [address] });
+    const result = await this.call(
+      {
+        functionName: 'getTokenIDsByAddress',
+        args: [address],
+      });
     return JSON.parse(result);
   }
   async getCardNameByTokenId(id) {
-    const result = await this.call({ functionName: 'getCardNameByTokenId', args: [id] });
+    const result = await this.call(
+      {
+        functionName: 'getCardNameByTokenId',
+        args: [id],
+      });
     return JSON.parse(result);
   }
   async getCardsInfoByAddress(address) {
