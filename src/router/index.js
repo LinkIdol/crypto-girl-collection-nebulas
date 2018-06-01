@@ -7,7 +7,7 @@ import FaqView from '@/views/FaqView';
 // import UserView from '@/views/UserView';
 import TermView from '@/views/TermView';
 import PrivacyView from '@/views/PrivacyView';
-// import LuckyDraw from '@/views/LuckyDraw';
+import LuckyDraw from '@/views/LuckyDraw';
 import CoinProfile from '@/views/CoinProfile';
 
 import ReferralView from '@/views/Referral';
@@ -26,11 +26,11 @@ export default new Router({
       path: '/',
       component: HomePage,
     },
-    // {
-    //   name: 'GirlList',
-    //   path: '/list',
-    //   component: ListView,
-    // },
+    {
+      name: 'LuckyDraw',
+      path: '/draw',
+      component: LuckyDraw,
+    },
     {
       name: 'CoinProfile',
       path: '/coin/:name',
@@ -49,6 +49,11 @@ export default new Router({
     {
       name: 'Collection',
       path: '/collection',
+      component: MyCollectionPage,
+    },
+    {
+      name: 'Collection',
+      path: '/collection/:address',
       component: MyCollectionPage,
     },
     {
