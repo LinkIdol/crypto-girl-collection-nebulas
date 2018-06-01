@@ -47,7 +47,10 @@ export default {
     },
     myRefferalLink() {
       const website = 'http://nas.linkidol.pro/#/';
-      return `${website}referral/${this.myAddress}`;
+      if (this.myAddress) {
+        return `${website}referral/${this.myAddress}`;
+      }
+      return '请安装钱包插件再来';
     },
   },
 };
