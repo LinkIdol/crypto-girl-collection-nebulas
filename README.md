@@ -5,14 +5,25 @@
 
 This repo is for LinkIdol, and copyright is owned by Andoromeda Foundation.
 
+## For The Devs
+
+第一次开发请看 [Wiki](https://github.com/LinkIdol/crypto-girl-collection/wiki)
+
+While you start your development, we encourage you to check out the [Wiki](https://github.com/LinkIdol/crypto-girl-collection/wiki) about this repo
+
+## 关于我的语言版本
+
 [English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-jp.md)
+
+## 网站
 
  [Stable Version](http://nas.linkidol.pro/#/)
 
  [Developing Version](http://nas-testing.linkidol.pro/#/)
 
 # About Open Source Project Announcement
-This project is a Vue.js project which changed to public on March 9, 2018. Fully access and can be forked.
+
+Fully access and can be forked.
 
 # Build Setup
 
