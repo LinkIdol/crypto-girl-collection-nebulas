@@ -3,13 +3,13 @@
   <section>
     <div class="cardContainer">
       <div class="cardcharas">
-        <img class="charaimg" alt="" srcset="../assets/home_girls.png"/>
+        <img class="charaimg" alt="" srcset="https://o28677qxx.qnssl.com/2018-06-01-home_girls.png"/>
       </div>
       <div class="btnContainer">
         <div class="cardbtn">
           <a @click="luckyDraw">
             <img class="btnimg" width="150" alt=""
-          src="../assets/home_btn.png" />
+          src="https://o28677qxx.qnssl.com/2018-06-01-home_btn.png" />
           </a>
 
           <p class="cardcount">卡包内剩余 {{ getCardsLeft }} 张卡</p>
@@ -59,10 +59,8 @@ export default {
     gotoCoinProfile(code) {
       this.$router.push({ path: `/coin/${code}` });
     },
-    async luckyDraw() {
-      const contract = new Contract();
-      const result = await contract.draw();
-      alert(result);
+    luckyDraw() {
+      this.$router.push({ path: '/draw' });
     },
   },
   mounted() {
@@ -78,7 +76,7 @@ export default {
   section 1
 */
 .cardContainer {
-  background-image: url("../assets/home_girls_bk.png");
+  background-image: url("https://o28677qxx.qnssl.com/2018-06-01-home_girls_bk.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: #fff;

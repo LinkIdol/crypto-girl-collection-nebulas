@@ -94,7 +94,7 @@ export default {
   section 1
 */
 .userContainer {
-  background-image: url("../assets/collection_bk.png");
+  background-image: url("https://o28677qxx.qnssl.com/2018-06-01-collection_bk.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: #fff;
