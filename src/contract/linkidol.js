@@ -6,16 +6,16 @@ import Contract from './contract';
 export default class LinkIdolContract extends Contract {
   constructor() {
     super({
-      contractAddress: 'n1tr1jn7sjcUECHabozo9hiB1zRSbtpYBx1',
+      contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
       network: 'testnet',
     });
   }
 
-  async draw(referrer = 'n1MmUacQExJwkD1xHggwaEvTpKgUeSmV4Af') {
-    const value = 0.001;
+  async draw(referrer = 'n1MmUacQExJwkD1xHggwaEvTpKgUeSmV4Af', price) {
+    const value = 0.01;
     const testResult = await this.call({
       functionName: 'luckyDraw',
-      value: new BigNumber(value).times('1000000000000000000'),
+      value: new BigNumber(price),
       args: [referrer],
     });
     if (isNaN(testResult)) {
@@ -33,6 +33,11 @@ export default class LinkIdolContract extends Contract {
   async getCardsLeft() {
     const result = await this.call({ functionName: 'getCardsLeft' });
     return result;
+  }
+
+  async getPrice() {
+    const result = await this.call({ functionName: 'getPrice' });
+    return new BigNumber(result).toString(10);
   }
 
   async getTokenIDsByAddress(address) {
