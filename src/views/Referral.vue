@@ -7,7 +7,7 @@
                     h2.subtitle| 推荐好友玩 Link Idol 可获得 5% 消费额的奖励!
                     .field.has-addons
                         label.label|你的邀请链接:
-                        .control(style="width: 75%")
+                        .control.is-expanded
                             input.input(type="text" :value="myRefferalLink" disabled)
                         .control
                             button.button.is-success(:data-clipboard-text="myRefferalLink")| 复制链接
