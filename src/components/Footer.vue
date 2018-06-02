@@ -29,7 +29,9 @@
         <div class="column is-4">
           <div class="content">
             <span> {{$t('Contact Us')}}</span>
+            <p>
             Telegram: @frankwei
+            </p>
           </div>
         </div>
       </div>
