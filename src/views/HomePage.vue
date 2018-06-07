@@ -22,8 +22,8 @@
       <div class="columns is-multiline is-mobile section2div">
         <div class="column is-4-desktop is-4-tablet is-12-mobile cardItem"
         v-for="item in itemIds" :key="item.id"
-        @click="gotoCoinProfile(item.code)">
-          <img class="cardItemImg" alt="" :src="item.img"/>
+        @click="gotoCoinProfile(item.id)">
+          <!-- <img class="cardItemImg" alt="" :src="item.img"/>
           <div :style="{ backgroundColor: item.color, height: '50px' }">
             <span>
               <a :style="{ lineHeight: '50px', color: item.textcolor, paddingLeft: '20px' }">
@@ -32,7 +32,8 @@
           <span class="priceSpan">
               <a :style="{ lineHeight: '50px', color: item.textcolor }">= =USD</a>
           </span>
-          </div>
+          </div> -->
+          <CardItem :item='item' :hasMouseOver='true'></CardItem>
         </div>
       </div>
     </section>
@@ -42,12 +43,16 @@
 
 <script>
 import Contract from '@/contract/linkidol';
+import CardItem from '@/components/CardItem';
 
 export default {
   name: 'HomePage',
   data: () => ({
     itemIds: [],
   }),
+  components: {
+    CardItem
+  },
   asyncComputed: {
     async getCardsLeft() {
       const contract = new Contract();

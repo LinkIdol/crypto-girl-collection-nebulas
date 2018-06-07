@@ -1,28 +1,26 @@
 <template>
 <div class="back">
-    <img src="https://o28677qxx.qnssl.com/2018-06-01-ranking-background.png" style="    max-height: 100%;
+    <img src="../assets/ranking-background.png" style="    max-height: 100%;
     max-width: 100%;">
     <div class="title-line">
     <div class="title">
          <div class="line"></div>
          <div class="line1"> {{title}}</div>
          <div class="line"></div>
+    </div> 
     </div>
-    </div>
-    <div class="ranking-ul">
+    <div class="ranking-ul"> 
      <ul style=" background-color:#97ceea; height: 30px;">
-        <li class="rank1" style=" line-height: 27px;">名次</li>
-        <li class="id1" > ID</li>
+        <li class="rank1" style=" line-height: 27px;">名次</li> 
         <li class="key1" > 钱包地址</li>
-        <li class="time1" > 合成时间</li>
+        <li class="time1" > 合成时间</li>   
     </ul>
      </div>
-    <div  v-for="( item, index ) in items" :key="item.id" class="ranking-ul">
+    <div  v-for="( item, index ) in items" :key="item.id" class="ranking-ul"> 
       <ul>
-        <li v-bind:id="'ranking'+index" class="rank"> <b>{{ index+1 }}</b></li>
-        <li class="id"> {{ item.ID }}</li>
+        <li v-bind:id="'ranking'+index" class="rank"> <b>{{ index+1 }}</b></li> 
         <li class="key"> {{ item.key }}</li>
-        <li class="time"> {{ item.time }}</li>
+        <li class="time"> {{ item.time }}</li>   
       </ul>
    </div>
 </div>
@@ -30,15 +28,15 @@
 <script>
 export default {
   name: 'RankingList',
-  data() {
-    return {
-      title: '排行榜',
-      methods: {
-        ranking(index) {
-          return `rank_${index}`;
-        },
-      },
-      items: [
+   data(){
+       return{
+        title:"排行榜",
+        methods :{
+         ranking: function(index){
+             return "rank_"+ index
+         }
+     },
+       items: [
         { ID: 'DanielYang',
           key: '1Eb84h8LnKncKjKLVRztDP2FXE1ixAbXQq',
           time: '2018.0524.18:32' },
@@ -69,11 +67,17 @@ export default {
         { ID: 'DanielYang',
           key: '1Eb84h8LnKncKjKLVRztDP2FXE1ixAbXQq',
           time: '2018.0524.18:32' },
-      ],
-
-    };
-  },
-};
+      ]
+     
+   }
+ },
+  // async created() {
+  //   this.$http.get('http://localhost:8888/getranklist.php').then((response) => {
+  //       console.log(response.body)
+  //       this.items = response.body;
+  //   });
+  // }
+}
 
 </script>
 <style scoped>
@@ -94,7 +98,7 @@ export default {
      width: 30%;
      height: 50px;
      display: flex;
-    justify-content: center
+    justify-content: center 
 }
 .line{
      width: 25%;
@@ -128,7 +132,7 @@ export default {
      margin: 0px auto;
      border-bottom: 1px solid #97ceea;
 }
- li{
+ li{  
      text-align: center;
      float:left ;
      font-size: 18px;
@@ -137,7 +141,7 @@ export default {
      margin-top: 4px;
     height: 30px;
 }
-
+ 
  .rank, .id ,.key, .time{
      height: 60px;
 }
@@ -159,7 +163,7 @@ export default {
      margin-top: 25px;
 }
 .key, .key1{
-     width: 400px;
+     width: 600px;
 }
 .time, .time1{
      width: 200px;
@@ -169,18 +173,18 @@ export default {
  }
 
 #ranking0{
-     background: url('https://o28677qxx.qnssl.com/2018-06-01-Firstplace.png') no-repeat center;
+     background: url(../assets/Firstplace.png) no-repeat center;
      background-size: 100%;
      font-size: 0;
 }
 #ranking1{
-
-     background: url('https://o28677qxx.qnssl.com/2018-06-01-Secondplace.png') no-repeat center;
+     
+     background: url(../assets/Secondplace.png) no-repeat center;
      font-size: 0;
      background-size: 100%;
 }
 #ranking2{
-      background: url('https://o28677qxx.qnssl.com/2018-06-01-Thirdplace.png') no-repeat center;
+      background: url(../assets/Thirdplace.png) no-repeat center;
       font-size: 0;
       background-size: 100%;
 
@@ -205,9 +209,10 @@ export default {
 }
      .title{
          width: 80%;
+ 
 }
 .line{
-     width: 14%;
+     width: 14%;     
 }
 }
 </style>
