@@ -23,8 +23,8 @@
       <div class="columns is-multiline is-mobile section2div">
         <div class="column is-4-desktop is-4-tablet is-12-mobile cardItem"
         v-for="item in cardsInfo" :key="item.cmcId"
-        @click="gotoCoinProfile(item.code)">
-          <img class="cardItemImg" alt="" :src="item.card"/>
+        @click="gotoCoinProfile(item.id)">
+          <!-- <img class="cardItemImg" alt="" :src="item.card"/>
           <div :style="{ backgroundColor: item.color, height: '50px' }">
             <span>
             <a :style="{ lineHeight: '50px', color: item.textcolor, paddingLeft: '20px' }">
@@ -34,7 +34,8 @@
               <a :style="{ lineHeight: '50px', color: item.textcolor }">
                 市价: {{ item.price }} USD</a>
           </span>
-          </div>
+          </div> -->
+          <CardItem :item='item' :hasMouseOver='true'></CardItem>
         </div>
       </div>
     </section>
@@ -46,6 +47,7 @@
 import { mapState } from 'vuex';
 import NasId from '@/contract/nasid';
 import LinkIdol from '@/contract/linkidol';
+import CardItem from '@/components/CardItem';
 
 export default {
   name: 'MyCollectionPage',
@@ -53,6 +55,9 @@ export default {
     items: [],
     itemIds: [],
   }),
+  components: {
+    CardItem
+  },
   // async created() {
 
   // },
