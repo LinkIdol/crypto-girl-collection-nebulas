@@ -1,39 +1,42 @@
 <template lang="pug">
-  .container
+  .containera
     #login(v-if="!me")
       h1| 请使用 MetaMask 登录
       h3| 无法访问你的钱包接口，请登录后抽卡
     #draw(v-if="me")
-            section.hero
+            section.hero.head
               .hero-body
                   .container
                       h1.title| 幸运抽卡
                       h2.subtitle| 目前卡池可抽数量： {{getCardsLeft}} 张，卡牌限量，先到先得
-                      h2.subtitle| 目前抽卡费 {{ getPrice }} 张，卡牌限量，先到先得
-            .field.has-addons
-                p.control.is-expanded
-                    //- b-field(label="抽卡数量")
-                    input.input.is-medium(type="text" :value="displayCount" disabled)
-                p.control
-                      button.button.is-success.is-medium(@click="add(10)")|+10
-                p.control
-                      button.button.is-danger.is-medium(@click="minus(10)")|-10
-                p.control
-                      button.button.is-success.is-medium(@click="add()")|+
-                p.control
-                      button.button.is-danger.is-medium(@click="minus()")|-
-                p.control
-                      button.button.is-primary.is-medium(@click="draw")| 搏一搏!
-            section.hero
-              .hero-body
-                  .container
-                      h2.subtitle| 即将耗费你
-                      h1.title| {{getDisplayTotal}} NAS
-                      h2.subtitle| 你确定要抽取卡牌吗
+                      h2.subtitle| 目前抽卡费
+                      h1.title| {{ getPrice }} NAS / 张
+            .container
+                .buttons(style="width: 18rem")
+                  a.button.is-primary(@click="setQty(1)")|抽 1 张
+                  a.button.is-primary(@click="setQty(3)")|抽 3 张
+                  a.button.is-primary(@click="setQty(6)")|抽 6 张
+                  a.button.is-primary(@click="setQty(9)")|抽 9 张
+                  a.button.is-primary(@click="setQty(12)")|抽 12 张
+                  a.button.is-primary(@click="setQty(16)")|抽 16 张
+                  a.button.is-primary(@click="setQty(20)")|抽 20 张
+            //- .container
+              .columns
+                .column
+                  section.hero
+                    .hero-body
+                        .containers
+                            h2.subtitle| 即将耗费你
+                            h1.title| {{getDisplayTotal}} NAS
+                            h2.subtitle| 你确定要抽取卡牌吗
+                .column
+                      button.button.is-primary.is-large(@click="draw")| 搏一搏!
+
 </template>
 
 <script>
 import Contract from '@/contract/linkidol';
+import { BigNumber } from 'bignumber.js';
 import { mapState } from 'vuex';
 
 export default {
@@ -51,7 +54,7 @@ export default {
     async getPrice() {
       const contract = new Contract();
       const result = await contract.getPrice();
-      return result;
+      return new BigNumber(result).div(1000000000000000000).toString();
     },
   },
   computed: {
@@ -59,14 +62,15 @@ export default {
     displayCount() {
       return `${this.count} 张`;
     },
-    countNasToWei() {
-      return 1000000000000000000 * this.count;
-    },
     getDisplayTotal() {
-      return this.countNasToWei / 1000000000000000000;
+      return new BigNumber(this.getPrice).times(this.count).toNumber();
     },
   },
   methods: {
+    setQty(qty) {
+      this.count = qty;
+      this.draw();
+    },
     add(time = 1) {
       this.count += time;
     },
@@ -77,9 +81,18 @@ export default {
     },
     async draw() {
       const contract = new Contract();
-      const result = await contract.draw();
+      const result = await contract.draw(undefined, this.getDisplayTotal);
       alert(result);
     },
   },
 };
 </script>
+
+<style scoped>
+.head {
+    background:  url('https://o28677qxx.qnssl.com/2018-06-01-ranking-background.png');
+}
+.buttons {
+    margin: 1rem;
+}
+</style>

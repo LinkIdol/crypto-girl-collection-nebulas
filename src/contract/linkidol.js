@@ -11,16 +11,12 @@ export default class LinkIdolContract extends Contract {
     });
   }
 
-  async draw(referrer = 'n1MmUacQExJwkD1xHggwaEvTpKgUeSmV4Af', price) {
-    const value = 0.01;
-    const testResult = await this.call({
+  async draw(referrer = 'n1MmUacQExJwkD1xHggwaEvTpKgUeSmV4Af', value) {
+    this.call({
       functionName: 'luckyDraw',
-      value: new BigNumber(price),
+      value: new BigNumber(value).times(1000000000000000000).toString(),
       args: [referrer],
-    });
-    if (isNaN(testResult)) {
-      return false;
-    }
+    }).then(console.info);
     const result = await this.send(
       {
         functionName: 'luckyDraw',
@@ -37,7 +33,7 @@ export default class LinkIdolContract extends Contract {
 
   async getPrice() {
     const result = await this.call({ functionName: 'getPrice' });
-    return new BigNumber(result).toString(10);
+    return JSON.parse(result);
   }
 
   async getTokenIDsByAddress(address) {

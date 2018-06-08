@@ -17,6 +17,13 @@
         <router-link
         v-if="me"
                      class="navbar-item"
+                     :to="{ name: 'LuckyDraw' }">
+          立即抽卡
+        </router-link>
+
+        <router-link
+        v-if="me"
+                     class="navbar-item"
                      :to="{ name: 'Referral' }">
           引荐计划 <strong class="tag is-black is-small"> 有佣金 </strong>
         </router-link>
