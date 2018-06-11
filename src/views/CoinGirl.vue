@@ -40,20 +40,26 @@
 
 <script>
 import CardItem from '@/components/CardItem';
+import coinProfile from '@/girl_cards.json';
 
 export default {
   name: 'CoinGirl',
-  data: () => ({
-    item: {}
-  }),
+  // data: () => ({
+  //   item: {}
+  // }),
   components: {
     CardItem
   },
-  mounted() {
-    this.$http.get('static/girl_cards.json').then((response) => {
-      this.item = response.body[this.$route.params.name];
-    });
+  asyncComputed: {
+    async item() {
+      return coinProfile[this.$route.params.name];
+    }
   }
+  // mounted() {
+  //   this.$http.get('static/girl_cards.json').then((response) => {
+  //     this.item = response.body[this.$route.params.name];
+  //   });
+  // }
 };
 </script>
 

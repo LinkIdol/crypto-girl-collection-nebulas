@@ -1,5 +1,5 @@
 import { BigNumber } from 'bignumber.js';
-import coinProfile from '@/coinProfile.json';
+import coinProfile from '@/girl_cards.json';//'@/coinProfile.json';
 import { getCoinMarketData, getBlockchainMarketCap } from '@/api';
 import Contract from './contract';
 
@@ -57,7 +57,7 @@ export default class LinkIdolContract extends Contract {
     const ids = await this.getTokenIDsByAddress(address);
     const cardsInfo = await Promise.all(ids.map(async (tokenId) => {
       const code = await this.getCardNameByTokenId(tokenId);
-      const { card, fullname, color, textColor } = coinProfile[code];
+      const infodic = coinProfile[code];
       let price;
       switch (code) {
         case 'Blockchain': {
@@ -74,7 +74,7 @@ export default class LinkIdolContract extends Contract {
           break;
         }
       }
-      return { tokenId, price, code, card, fullname, color, textColor };
+      return infodic;
     }));
     return cardsInfo;
   }
