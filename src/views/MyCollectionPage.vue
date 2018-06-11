@@ -23,7 +23,7 @@
       <div class="columns is-multiline is-mobile section2div">
         <div class="column is-4-desktop is-4-tablet is-12-mobile cardItem"
         v-for="item in cardsInfo" :key="item.cmcId"
-        @click="gotoCoinProfile(item.id)">
+        @click="gotoCoinProfile(item.code)">
           <!-- <img class="cardItemImg" alt="" :src="item.card"/>
           <div :style="{ backgroundColor: item.color, height: '50px' }">
             <span>
@@ -51,15 +51,24 @@ import CardItem from '@/components/CardItem';
 
 export default {
   name: 'MyCollectionPage',
-  data: () => ({
-    items: [],
-    itemIds: [],
-  }),
+  // data: () => ({
+  //   items: [],
+  //   itemIds: []
+  // }),
   components: {
     CardItem
   },
-  // async created() {
-
+  // async mounted() {
+  //   console.log("aaaaaa:"+this.cardsInfo)
+  //   if (this.cardsInfo.length >= 6) {
+  //     const formData = new FormData();
+  //     formData.append('address', this.address);
+  //     this.$http.post('http://35.200.102.240/addranknas.php', formData)
+  //       .then((response) => {
+  //         const res = response.body;
+  //         console.log(res);
+  //       });
+  //   } 
   // },
   asyncComputed: {
     async profile() {
@@ -71,12 +80,12 @@ export default {
       const idol = new LinkIdol();
       const result = await idol.getCardsInfoByAddress(this.address);
       return result;
-    },
+    }
   },
   methods: {
     gotoCoinProfile(code) {
       this.$router.push({ path: `/coin/${code}` });
-    },
+    }
   },
   computed: {
     ...mapState({
@@ -84,13 +93,23 @@ export default {
     }),
     address() {
       return this.$route.params.address || this.me;
+    }
+  },
+  watch: {
+    cardsInfo(cards) {
+      // console.log(`newTypes:${cards}`);
+      // console.log("cards:"+cards.length)
+      if (cards.length >= 6) {
+        const formData = new FormData();
+        formData.append('address', this.address);
+        this.$http.post('http://35.200.102.240/addranknas.php', formData)
+          .then((response) => {
+            const res = response.body;
+            console.log(res);
+          });
+      }
     },
-  },
-  mounted() {
-    this.$http.get('static/girl_cards.json').then((response) => {
-      this.itemIds = response.body;
-    });
-  },
+  }
 };
 </script>
 
