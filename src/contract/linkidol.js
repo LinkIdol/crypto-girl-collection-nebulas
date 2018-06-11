@@ -1,5 +1,5 @@
 import { BigNumber } from 'bignumber.js';
-import coinProfile from '@/girl_cards.json';//'@/coinProfile.json';
+import coinProfile from '@/girl_cards.json';// '@/coinProfile.json';
 import { getCoinMarketData, getBlockchainMarketCap } from '@/api';
 import Contract from './contract';
 
@@ -7,7 +7,7 @@ export default class LinkIdolContract extends Contract {
   constructor() {
     super({
       // contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
-      contractAddress: 'n1eH7Ad1mxNcSTmMoGmjJJZevCEftvQYNJq', // No BigNum 4 this
+      contractAddress: 'n227HV2qTKuiZrTAkkhMevC171kw96FT1AS', // No BigNum 4 this
       network: 'testnet',
     });
   }
