@@ -6,20 +6,21 @@ import Contract from './contract';
 export default class LinkIdolContract extends Contract {
   constructor() {
     super({
-      contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
+      // contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
+      contractAddress: 'n1eH7Ad1mxNcSTmMoGmjJJZevCEftvQYNJq', // No BigNum 4 this
       network: 'testnet',
     });
   }
 
   async draw(referrer = 'n1MmUacQExJwkD1xHggwaEvTpKgUeSmV4Af', value) {
     this.call({
-      functionName: 'luckyDraw',
+      functionName: 'multiDraw',
       value: new BigNumber(value).times(1000000000000000000).toString(),
       args: [referrer],
     }).then(console.info);
     const result = await this.send(
       {
-        functionName: 'luckyDraw',
+        functionName: 'multiDraw',
         value,
         data: [referrer],
       });
