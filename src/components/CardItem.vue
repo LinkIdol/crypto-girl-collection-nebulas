@@ -48,7 +48,7 @@ export default {
   		this.isMouseOver = !this.isMouseOver;
   	},
     async getCoinMarketData() {
-      console.log("this.item.idforapi:"+this.item.idforapi)
+      // console.log("this.item.idforapi:"+this.item.idforapi)
     	if(this.item.idforapi != 0){
   			const { body } = await request
   				.get(`https://api.coinmarketcap.com/v2/ticker/${this.item.idforapi}/`);
