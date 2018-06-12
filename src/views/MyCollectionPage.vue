@@ -36,6 +36,9 @@
           </span>
           </div> -->
           <CardItem :item='item' :hasMouseOver='true'></CardItem>
+          <div class="haveCount">
+            <a :style="{ color: item.textcolor }">拥有{{ item.havecount }}张</a>
+          </div>
         </div>
       </div>
     </section>
@@ -78,8 +81,20 @@ export default {
     },
     async cardsInfo() {
       const idol = new LinkIdol();
-      const result = await idol.getCardsInfoByAddress(this.address);
-      return result;
+      const result = await idol.getCardsCodeAndCountByAddress(this.address);
+      const keys = Object.keys(result);
+      var itemIds = [];
+      this.$http.get('static/girl_cards.json').then((response) => {
+        const allCards = response.body;
+        const thisself = this;
+        keys.forEach((index) => {
+          // console.log(index);
+          var cardinfo = allCards[index];
+          cardinfo["havecount"] = result[index];
+          itemIds.push(cardinfo);
+        });
+      });
+      return itemIds;
     }
   },
   methods: {
@@ -169,6 +184,15 @@ export default {
 .priceSpan {
   float:right;
   padding-right: 20px;
+}
+
+.cardItem {
+  position: relative;
+}
+.haveCount {
+  position:absolute;
+  bottom: 70px;
+  left: 30px;
 }
 
 @media (max-width: 800px) {

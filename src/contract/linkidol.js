@@ -53,29 +53,71 @@ export default class LinkIdolContract extends Contract {
       });
     return JSON.parse(result);
   }
-  async getCardsInfoByAddress(address) {
+  // async getCardsInfoByAddress(address) {
+  //   const ids = await this.getTokenIDsByAddress(address);
+  //   const cardsInfo = await Promise.all(ids.map(async (tokenId) => {
+  //     const code = await this.getCardNameByTokenId(tokenId);
+  //     const infodic = coinProfile[code];
+  //     let price;
+  //     switch (code) {
+  //       case 'Blockchain': {
+  //         const result = await getBlockchainMarketCap();
+  //         price = result.toFixed(2);
+  //         break;
+  //       }
+  //       case 'SARI':
+  //         price = 'N/A';
+  //         break;
+  //       default: {
+  //         const result = await getCoinMarketData({ coinName: code });
+  //         price = result.price.toFixed(2);
+  //         break;
+  //       }
+  //     }
+  //     return infodic;
+  //   }));
+  //   return cardsInfo;
+  // }
+
+  // async getCardsNameAndCount(cardids) {
+  //   const ids = await this.getTokenIDsByAddress(address);
+  //   const cardsInfo = await Promise.all(ids.map(async (tokenId) => {
+  //     const code = await this.getCardNameByTokenId(tokenId);
+  //     const infodic = coinProfile[code];
+  //     return infodic;
+  //   }));
+  //   return cardsInfo;
+  // }
+
+  async getCardsCodeAndCountByAddress(address) {
     const ids = await this.getTokenIDsByAddress(address);
-    const cardsInfo = await Promise.all(ids.map(async (tokenId) => {
+    var cardcodes = {}
+    await Promise.all(ids.map(async (tokenId) => {
       const code = await this.getCardNameByTokenId(tokenId);
-      const infodic = coinProfile[code];
-      let price;
-      switch (code) {
-        case 'Blockchain': {
-          const result = await getBlockchainMarketCap();
-          price = result.toFixed(2);
+      switch(code) {
+        case "XPM":
+          cardcodes["XPM"] ? cardcodes["XPM"]+=1 : cardcodes["XPM"]=1;
           break;
-        }
-        case 'SARI':
-          price = 'N/A';
+        case "SARI":
+          cardcodes["SARI"] ? cardcodes["SARI"]+=1 : cardcodes["SARI"]=1;
           break;
-        default: {
-          const result = await getCoinMarketData({ coinName: code });
-          price = result.price.toFixed(2);
+        case "BTC":
+          cardcodes["BTC"] ? cardcodes["BTC"]+=1 : cardcodes["BTC"]=1;
           break;
-        }
+        case "ETH":
+          cardcodes["ETH"] ? cardcodes["ETH"]+=1 : cardcodes["ETH"]=1;
+          break;
+        case "DOGE":
+          cardcodes["DOGE"] ? cardcodes["DOGE"]+=1 : cardcodes["DOGE"]=1;
+          break;
+        case "Blockchain":
+          cardcodes["Blockchain"] ? cardcodes["Blockchain"]+=1 : cardcodes["Blockchain"]=1;
+          break;
+        default:
+          break;
       }
-      return infodic;
     }));
-    return cardsInfo;
+    return cardcodes;
   }
+
 }
