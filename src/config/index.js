@@ -1,4 +1,4 @@
-import cardsData from './cards.json';
+// import cardsData from './cards.json';
 
 /* eslint-disable import/prefer-default-export */
 
@@ -12,7 +12,7 @@ export const networkSetting = {
 };
 
 
-export const cards = cardsData;
+// export const cards = cardsData;
 
 export const i18n = [
   {

@@ -29,11 +29,11 @@ export default class LinkIdolContract extends Contract {
 
   async getCardsLeft() {
     const result = await this.call({ functionName: 'getCardsLeft' });
-    return result;
+    return JSON.parse(result);
   }
 
   async getPrice() {
-    const result = await this.call({ functionName: 'getPrice' });
+    const result = await this.call({ functionName: 'getDrawPrice' });
     return JSON.parse(result);
   }
 
