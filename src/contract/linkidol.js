@@ -7,20 +7,20 @@ export default class LinkIdolContract extends Contract {
   constructor() {
     super({
       // contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
-      contractAddress: 'n22aqv4GmC2gX5nef3E8F2AV2v1Hoq5CZqf',
+      contractAddress: 'n21UR3nd2FPvE8xLiE1NtzNu1Uyg7Rg4Uq6',
       network: 'testnet',
     });
   }
 
   async draw(referrer = 'n1MmUacQExJwkD1xHggwaEvTpKgUeSmV4Af', value) {
     this.call({
-      functionName: 'multiDraw',
+      functionName: 'draw',
       value: new BigNumber(value).times(1000000000000000000).toString(),
       args: [referrer],
     }).then(console.info);
     const result = await this.send(
       {
-        functionName: 'multiDraw',
+        functionName: 'draw',
         value,
         data: [referrer],
       });
@@ -91,7 +91,7 @@ export default class LinkIdolContract extends Contract {
 
   async getCardsCodeAndCountByAddress(address) {
     const ids = await this.getTokenIDsByAddress(address);
-    let cardcodes = {};
+    const cardcodes = {};
     await Promise.all(ids.map(async (tokenId) => {
       const code = await this.getCardNameByTokenId(tokenId);
       switch (code) {
