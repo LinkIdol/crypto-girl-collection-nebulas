@@ -7,7 +7,7 @@ export default class LinkIdolContract extends Contract {
   constructor() {
     super({
       // contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
-      contractAddress: 'n227HV2qTKuiZrTAkkhMevC171kw96FT1AS', // No BigNum 4 this
+      contractAddress: 'n22aqv4GmC2gX5nef3E8F2AV2v1Hoq5CZqf',
       network: 'testnet',
     });
   }
@@ -91,27 +91,27 @@ export default class LinkIdolContract extends Contract {
 
   async getCardsCodeAndCountByAddress(address) {
     const ids = await this.getTokenIDsByAddress(address);
-    var cardcodes = {}
+    let cardcodes = {};
     await Promise.all(ids.map(async (tokenId) => {
       const code = await this.getCardNameByTokenId(tokenId);
-      switch(code) {
-        case "XPM":
-          cardcodes["XPM"] ? cardcodes["XPM"]+=1 : cardcodes["XPM"]=1;
+      switch (code) {
+        case 'XPM':
+          cardcodes.XPM ? cardcodes.XPM += 1 : cardcodes.XPM = 1;
           break;
-        case "SARI":
-          cardcodes["SARI"] ? cardcodes["SARI"]+=1 : cardcodes["SARI"]=1;
+        case 'SARI':
+          cardcodes.SARI ? cardcodes.SARI += 1 : cardcodes.SARI = 1;
           break;
-        case "BTC":
-          cardcodes["BTC"] ? cardcodes["BTC"]+=1 : cardcodes["BTC"]=1;
+        case 'BTC':
+          cardcodes.BTC ? cardcodes.BTC += 1 : cardcodes.BTC = 1;
           break;
-        case "ETH":
-          cardcodes["ETH"] ? cardcodes["ETH"]+=1 : cardcodes["ETH"]=1;
+        case 'ETH':
+          cardcodes.ETH ? cardcodes.ETH += 1 : cardcodes.ETH = 1;
           break;
-        case "DOGE":
-          cardcodes["DOGE"] ? cardcodes["DOGE"]+=1 : cardcodes["DOGE"]=1;
+        case 'DOGE':
+          cardcodes.DOGE ? cardcodes.DOGE += 1 : cardcodes.DOGE = 1;
           break;
-        case "Blockchain":
-          cardcodes["Blockchain"] ? cardcodes["Blockchain"]+=1 : cardcodes["Blockchain"]=1;
+        case 'Blockchain':
+          cardcodes.Blockchain ? cardcodes.Blockchain += 1 : cardcodes.Blockchain = 1;
           break;
         default:
           break;
@@ -119,5 +119,4 @@ export default class LinkIdolContract extends Contract {
     }));
     return cardcodes;
   }
-
 }
