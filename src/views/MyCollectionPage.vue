@@ -23,11 +23,11 @@
       <div class="columns is-multiline is-mobile section2div">
         <div class="column is-4-desktop is-4-tablet is-12-mobile cardItem"
         v-for="item in cardsInfo" :key="item.cmcId"
-        @click="gotoCoinProfile(item.code)">
+        @click="gotoCoinProfile(item.tokenId)">
           <CardItem :item='item' :hasMouseOver='true'></CardItem>
-          <div class="haveCount">
+          <!-- <div class="haveCount">
             <a :style="{ color: item.textcolor }">拥有{{ item.havecount }}张</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
