@@ -31,7 +31,8 @@
         <router-link
         v-else
        class="navbar-item"
-                     :to="{ name: 'Collection' }">
+                    :to="{ name: 'FAQ'}">
+                     <!-- :to="{ name: 'Collection' }" -->
           怎么玩?
         </router-link>
 

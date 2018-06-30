@@ -1,7 +1,7 @@
 <template lang="pug">
   .containera
     #login(v-if="!me")
-      h1| 请使用 MetaMask 登录
+      h1| 请使用 星云链钱包 登录
       h3| 无法访问你的钱包接口，请登录后抽卡
     #draw(v-if="me")
             section.hero.head
