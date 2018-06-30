@@ -24,17 +24,6 @@
         <div class="column is-4-desktop is-4-tablet is-12-mobile cardItem"
         v-for="item in cardsInfo" :key="item.cmcId"
         @click="gotoCoinProfile(item.code)">
-          <!-- <img class="cardItemImg" alt="" :src="item.card"/>
-          <div :style="{ backgroundColor: item.color, height: '50px' }">
-            <span>
-            <a :style="{ lineHeight: '50px', color: item.textcolor, paddingLeft: '20px' }">
-              {{ $t(`coin.name.${item.fullname}`) }} {{ item.code }}</a>
-          </span>
-          <span class="priceSpan">
-              <a :style="{ lineHeight: '50px', color: item.textcolor }">
-                市价: {{ item.price }} USD</a>
-          </span>
-          </div> -->
           <CardItem :item='item' :hasMouseOver='true'></CardItem>
           <div class="haveCount">
             <a :style="{ color: item.textcolor }">拥有{{ item.havecount }}张</a>
@@ -51,28 +40,13 @@ import { mapState } from 'vuex';
 import NasId from '@/contract/nasid';
 import LinkIdol from '@/contract/linkidol';
 import CardItem from '@/components/CardItem';
+import Profiles from '../cards/cards.json';
 
 export default {
   name: 'MyCollectionPage',
-  // data: () => ({
-  //   items: [],
-  //   itemIds: []
-  // }),
   components: {
-    CardItem
+    CardItem,
   },
-  // async mounted() {
-  //   console.log("aaaaaa:"+this.cardsInfo)
-  //   if (this.cardsInfo.length >= 6) {
-  //     const formData = new FormData();
-  //     formData.append('address', this.address);
-  //     this.$http.post('http://35.200.102.240/addranknas.php', formData)
-  //       .then((response) => {
-  //         const res = response.body;
-  //         console.log(res);
-  //       });
-  //   } 
-  // },
   asyncComputed: {
     async profile() {
       const nasId = new NasId();
@@ -81,26 +55,17 @@ export default {
     },
     async cardsInfo() {
       const idol = new LinkIdol();
-      const result = await idol.getCardsCodeAndCountByAddress(this.address);
-      const keys = Object.keys(result);
-      var itemIds = [];
-      this.$http.get('static/girl_cards.json').then((response) => {
-        const allCards = response.body;
-        const thisself = this;
-        keys.forEach((index) => {
-          // console.log(index);
-          var cardinfo = allCards[index];
-          cardinfo["havecount"] = result[index];
-          itemIds.push(cardinfo);
-        });
+      const result = await idol.getCardsByAddress(this.address);
+      return result.map((card) => {
+        const profile = Profiles[card.heroId];
+        return Object.assign(card, profile);
       });
-      return itemIds;
-    }
+    },
   },
   methods: {
     gotoCoinProfile(code) {
       this.$router.push({ path: `/coin/${code}` });
-    }
+    },
   },
   computed: {
     ...mapState({
@@ -108,23 +73,8 @@ export default {
     }),
     address() {
       return this.$route.params.address || this.me;
-    }
-  },
-  watch: {
-    cardsInfo(cards) {
-      // console.log(`newTypes:${cards}`);
-      // console.log("cards:"+cards.length)
-      if (cards.length >= 6) {
-        const formData = new FormData();
-        formData.append('address', this.address);
-        this.$http.post('http://35.200.102.240/addranknas.php', formData)
-          .then((response) => {
-            const res = response.body;
-            console.log(res);
-          });
-      }
     },
-  }
+  },
 };
 </script>
 

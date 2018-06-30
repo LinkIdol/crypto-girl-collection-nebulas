@@ -7,7 +7,7 @@ export default class LinkIdolContract extends Contract {
   constructor() {
     super({
       // contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
-      contractAddress: 'n21UR3nd2FPvE8xLiE1NtzNu1Uyg7Rg4Uq6',
+      contractAddress: 'n1rCuMDUTd8QBraY7HSUdeBDnteV5BShYMC',
       network: 'testnet',
     });
   }
@@ -45,6 +45,16 @@ export default class LinkIdolContract extends Contract {
       });
     return JSON.parse(result);
   }
+
+  async getCardsByAddress(address) {
+    const result = await this.call(
+      {
+        functionName: 'getCardsByAddress',
+        args: [address],
+      });
+    return JSON.parse(result);
+  }
+
   async getCardNameByTokenId(id) {
     const result = await this.call(
       {
