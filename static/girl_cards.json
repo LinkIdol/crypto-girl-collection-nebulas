@@ -26,7 +26,7 @@
         "3": {
                 "id": 4,
                 "name": "区块链",
-                "code": "BlockChain",
+                "code": "Blockchain",
                 "color": "#aec9e9",
                 "textcolor": "#5381b7",
                 "img": "../../static/assets/girlcards/card_block.png"
