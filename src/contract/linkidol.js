@@ -7,8 +7,8 @@ export default class LinkIdolContract extends Contract {
   constructor() {
     super({
       // contractAddress: 'n1k1Wyry8No7JgEaW48kuqhmo8rRSP2ej5p',
-      contractAddress: 'n1rCuMDUTd8QBraY7HSUdeBDnteV5BShYMC',
-      network: 'testnet',
+      contractAddress: 'n1u2p2BsjG13KTBsnZyv9u2M9CFyWajQZqV',
+      network: 'mainnet',
     });
   }
 

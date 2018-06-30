@@ -39,7 +39,7 @@
         <p>
           <small>
             &copy; Copyright
-            <strong>LinkIdol.pro</strong>
+            <strong>NAS.LinkIdol.pro</strong>
             2018
             <br>
             本网站需要 Chrome 搭配 WebExtensionWallet 插件才能正常使用
