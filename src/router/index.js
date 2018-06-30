@@ -1,19 +1,22 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import ItemView from '@/views/ItemView';
-import ListView from '@/views/ListView';
-import LoginView from '@/views/LoginView';
+// import ItemView from '@/views/ItemView';
+// import ListView from '@/views/ListView';
+// import LoginView from '@/views/LoginView';
 import FaqView from '@/views/FaqView';
-import UserView from '@/views/UserView';
+// import UserView from '@/views/UserView';
 import TermView from '@/views/TermView';
 import PrivacyView from '@/views/PrivacyView';
-import BirthdayGiftView from '@/views/BirthdayGiftView';
 import LuckyDraw from '@/views/LuckyDraw';
 import CoinProfile from '@/views/CoinProfile';
 
+import ReferralView from '@/views/Referral';
 import HomePage from '@/views/HomePage';
 import MyCollectionPage from '@/views/MyCollectionPage';
+
 import RankingList from '@/views/RankingList';
+import CoinGirl from '@/views/CoinGirl';
+
 Vue.use(Router);
 
 export default new Router({
@@ -24,15 +27,25 @@ export default new Router({
       path: '/',
       component: HomePage,
     },
-    // {
-    //   name: 'GirlList',
-    //   path: '/list',
-    //   component: ListView,
-    // },
     {
-      name: 'CoinProfile',
+      name: 'LuckyDraw',
+      path: '/draw',
+      component: LuckyDraw,
+    },
+    {
+      name: 'CoinGirl',
       path: '/coin/:name',
-      component: CoinProfile,
+      component: CoinGirl,
+    },
+    {
+      name: 'ReferralTo',
+      path: '/referral/:address',
+      component: ReferralView,
+    },
+    {
+      name: 'Referral',
+      path: '/referral/',
+      component: ReferralView,
     },
     {
       name: 'Collection',
@@ -40,39 +53,29 @@ export default new Router({
       component: MyCollectionPage,
     },
     {
+      name: 'Collection',
+      path: '/collection/:address',
+      component: MyCollectionPage,
+    },
+    {
       name: 'RankingList',
       path: '/RankingList',
       component: RankingList,
     },
-    // {
-    //   name: 'Item',
-    //   path: '/item/:id(\\d+)',
-    //   component: ItemView,
-    // },
-    // {
-    //   name: 'User',
-    //   path: '/user/:address',
-    //   component: UserView,
-    // },
-    // {
-    //   name: 'FAQ',
-    //   path: '/faq',
-    //   component: FaqView,
-    // },
-    // {
-    //   name: 'Privacy',
-    //   path: '/privacy-policy',
-    //   component: PrivacyView,
-    // },
-    // {
-    //   name: 'Term',
-    //   path: '/terms-of-us',
-    //   component: TermView,
-    // },
-    // {
-    //   name: 'BirthdayGift',
-    //   path: '/birthday-gift',
-    //   component: BirthdayGiftView,
-    // },
+    {
+      name: 'FAQ',
+      path: '/faq',
+      component: FaqView,
+    },
+    {
+      name: 'Privacy',
+      path: '/privacy-policy',
+      component: PrivacyView,
+    },
+    {
+      name: 'Term',
+      path: '/terms-of-us',
+      component: TermView,
+    },
   ],
 });

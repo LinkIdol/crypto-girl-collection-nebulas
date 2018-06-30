@@ -29,24 +29,20 @@
         <div class="column is-4">
           <div class="content">
             <span> {{$t('Contact Us')}}</span>
-            <p><a href="http://t.me/LinkIdol_Official"
-               target="_blank">
-              @Telegram
-            </a></p>
-            <p><a href="https://discord.gg/nMXUYGQ"
-               target="_blank">
-              @Discord
-            </a></p>
-            <p>Wechat Group: add wechat friend "do_best_for_you"</p>
+            <p>
+            Telegram: @frankwei
+            </p>
           </div>
         </div>
       </div>
       <div class="content has-text-centered">
         <p>
           <small>
-            All rights reserved. <br>
-            &copy; Copyright 2018
-            <strong>LinkIdol.pro</strong>
+            &copy; Copyright
+            <strong>NAS.LinkIdol.pro</strong>
+            2018
+            <br>
+            本网站需要 Chrome 搭配 WebExtensionWallet 插件才能正常使用
           </small>
         </p>
       </div>

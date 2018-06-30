@@ -1,45 +1,57 @@
 {
     "BTC": {
-        "id": 1,
+        "cmcId": 1,
         "fullname": "Bitcoin",
         "founder": "Satoshi Nakamoto",
+        "card": "http://static.togetthere.cn/card_btc.png",
         "DOB": "2009-01-03",
+        "color": "#ebd4b0",
+        "textcolor": "#d48e18",
         "consensus": "PoW",
         "info": "In Nov. 2008, a guy named Satoshi Nakamoto announced his idea about cryptocurrency."
     },
     "ETH": {
-        "id": 1027,
+        "cmcId": 1027,
         "fullname": "Ethereum",
         "founder": "Vitalik Buterin",
         "DOB": "",
-        "consensus": "PoW => PoS"
+        "card": "http://static.togetthere.cn/card_eth.png",
+        "color": "#bbe7ae",
+        "textcolor": "#59904c",
+        "consensus": "PoS"
     },
-    "EOS": {
-        "id": 1765,
-        "fullname": "EOS.IO",
-        "founder": "block.one",
-        "DOB": "",
-        "consensus": "DPoS"
-    },
-    "BCH": {
-        "id": 1831,
-        "fullname": "Bitcoin Cash",
-        "founder": "Satoshi Nakamoto",
-        "DOB": "",
-        "consensus": "PoW"
-    },
-    "DOGE": {
-        "id": 74,
+    "DGC": {
+        "cmcId": 74,
         "fullname": "Dogecoin",
+        "color": "#e8c0af",
+        "textcolor": "#b47a68",
         "founder": "Billy Markus",
         "DOB": "2013-12-06",
+        "card": "http://static.togetthere.cn/card_doge.png",
         "consensus": "PoW"
     },
     "XPM": {
-        "id": 42,
+        "cmcId": 42,
+        "card": "http://static.togetthere.cn/card_xpm.png",
         "fullname": "Primecoin",
         "founder": "Sunny King",
         "DOB": "2013-07-06",
-        "consensus": "PoW"
-    }
+        "consensus": "PoW",
+        "color": "#ebe5b0",
+        "textcolor": "#b8a909"
+    },
+    "SARI":{
+        "id": -1,
+        "fullname": "SARI",
+        "color": "#aedfe8",
+        "textcolor": "#3199af",
+        "card": "http://static.togetthere.cn/card_sari.png"
+    },
+    "Blockchain":{
+        "id": -1,
+        "fullname": "Blockchain",
+        "color": "#aec9e9",
+        "textcolor": "#5381b7",
+        "card": "http://static.togetthere.cn/card_block.png"
+	}
 }

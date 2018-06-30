@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <Header />
-
     <div>
       <router-view :key="key"></router-view>
     </div>
-
     <Footer />
   </div>
 </template>
@@ -22,10 +20,10 @@ export default {
     Footer,
   },
   async created() {
-    await this.setContract();
+    await this.FETCH_ME();
   },
   methods: {
-    ...mapActions(['setContract']),
+    ...mapActions(['FETCH_ME']),
   },
   computed: {
     key() {
