@@ -9,39 +9,40 @@
 
         <router-link
         v-if="me"
-                     class="navbar-item"
+       class="navbar-item"
                      :to="{ name: 'Collection' }">
           我的收藏
         </router-link>
 
         <router-link
         v-if="me"
-                     class="navbar-item"
+       class="navbar-item"
                      :to="{ name: 'LuckyDraw' }">
           立即抽卡
         </router-link>
 
         <router-link
         v-if="me"
-                     class="navbar-item"
+       class="navbar-item"
                      :to="{ name: 'Referral' }">
           引荐计划 <strong class="tag is-black is-small"> 有佣金 </strong>
         </router-link>
 
         <router-link
         v-else
-                     class="navbar-item"
+       class="navbar-item"
                      :to="{ name: 'Collection' }">
           怎么玩?
         </router-link>
 
-        <router-link
-                     class="navbar-item"
+      <!-- forgive me, just doing a crappy demo first, then we do this -->
+        <!-- <router-link
+       class="navbar-item"
                      :to="{ name: 'RankingList' }">
           排行榜
-        </router-link>
+        </router-link> -->
         <!-- <router-link
-                     class="navbar-item"
+       class="navbar-item"
                      :to="{ name: 'GirlList' }">
           {{$t('GirlList')}}
         </router-link>
@@ -59,7 +60,7 @@
         </router-link>
 
         <router-link v-else
-                     class="navbar-item"
+       class="navbar-item"
                      :to="{ name: 'Login'}">
           {{$t('Sign In')}}
         </router-link>

@@ -12,33 +12,33 @@
                             input.input(type="text" :value="myRefferalLink" disabled)
                         .control
                             button.button.is-success(:data-clipboard-text="myRefferalLink")| 复制链接
-                    h1.title| Share to your friends
+                    h1.title| 分享到社交网络
                     .buttons
-                      button.button.is-large.is-circle
-                        span.icon.is-medium
-                          i.iconfont.icon-wechat
-                      button.button.is-large.is-circle
+                      // a.button.is-large.is-circle(href="" target="_blank")
+                      //   span.icon.is-medium
+                      //     i.iconfont.icon-wechat
+                      a.button.is-large.is-circle(:href="getFB" target="_blank")
                         span.icon.is-medium
                           i.iconfont.icon-Facebook
-                      button.button.is-large.is-circle
+                      a.button.is-large.is-circle(:href="getTwitter" target="_blank")
                         span.icon.is-medium
                           i.iconfont.icon-twitter
-                      button.button.is-large.is-circle
+                      a.button.is-large.is-circle(:href="getWeibo" target="_blank")
                         span.icon.is-medium
                           i.iconfont.icon-weibo
-                      button.button.is-large.is-circle
-                        span.icon.is-medium
-                          i.iconfont.icon-qq
-                      button.button.is-large.is-circle
+                      // a.button.is-large.is-circle(href="" target="_blank")
+                      //   span.icon.is-medium
+                      //     i.iconfont.icon-qq
+                      a.button.is-large.is-circle(:href="getLine" target="_blank")
                         span.icon.is-medium
                           i.iconfont.icon-line
-                      button.button.is-large.is-circle
+                      a.button.is-large.is-circle(@click="openBarcode = !openBarcode")
                         span.icon.is-medium
                           i.iconfont.icon-barcode
                       button.button.is-large.is-circle(:data-clipboard-text="myRefferalLink")
                         span.icon.is-medium
                           i.iconfont.icon-link
-                    article.message.is-dark
+                    article.message.is-dark(v-show="openBarcode")
                       .message-header| 你的分享邀请码
                       .message-body
                         img(:src="generateQrCode")
@@ -61,6 +61,9 @@ import QRCode from 'qrcode';
 
 
 export default {
+  data: () => ({
+    openBarcode: false,
+  }),
   created() {
     const clipboard = new Clipboard('.button');
     clipboard.on('success', (e) => {
@@ -79,9 +82,6 @@ export default {
     ...mapState({
       myAddress: state => state.me,
     }),
-    getReferrer() {
-      return this.$route.params.address;
-    },
     toHomePageParam() {
       const referrer = this.getReferrer;
       return { name: 'HomePage', params: { referrer } };
@@ -91,7 +91,28 @@ export default {
       if (this.myAddress) {
         return `${website}/draw/${this.myAddress}`;
       }
-      return '请安装钱包插件再来';
+      return '无法检测到你的地址，请安装钱包插件再来';
+    },
+    getSafeLink() {
+      return encodeURIComponent(this.myRefferalLink);
+    },
+    getFB() {
+      const { getSafeLink } = this;
+      return `https://www.facebook.com/sharer/sharer.php?u=${getSafeLink}`;
+    },
+    getLine() {
+      const { getSafeLink } = this;
+      return `https://social-plugins.line.me/lineit/share?url=${getSafeLink}`;
+    },
+    getTwitter() {
+      const { getSafeLink } = this;
+      const shareStr = `我在玩 LinkIdol, 要来一发吗？ ${getSafeLink}`;
+      return `https://twitter.com/intent/tweet?text=${shareStr}`;
+    },
+    getWeibo() {
+      const { getSafeLink } = this;
+      const shareStr = `我在玩 LinkIdol, 要来一发吗？ ${getSafeLink}`;
+      return `http://service.weibo.com/share/share.php?title=${shareStr}`;
     },
   },
   methods: {
