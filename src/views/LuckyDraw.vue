@@ -89,7 +89,7 @@ export default {
     async draw() {
       const contract = new Contract();
       const result = await contract.draw(undefined, this.getDisplayTotal);
-      alert(result);
+      // alert(result);
     },
   },
 };
