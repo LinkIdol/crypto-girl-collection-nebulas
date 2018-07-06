@@ -1,8 +1,6 @@
-import request from 'superagent';
-// import NebPay from '@/lib/nebpay';
-import NebPay from 'nebpay.js';
+import '../../node_modules/nasa.js/dist/nasa';
 
-const nebPay = new NebPay();
+// const nebPay = new NebPay();
 
 const networkSetting = {
   mainnet: {
@@ -29,37 +27,12 @@ export default class Contract {
      * @param: args - Function arguement, please enter arguement in ordered array
      */
   async call({
-    from = 'n1Z6SbjLuAEXfhX1UJvXT6BB5osWYxVg3F3', //
     functionName,
-    value = '0',
     args = [],
   }) {
-    const { contractAddress, api } = this;
-    const to = contractAddress;
-    const txParams = {
-      value,
-      nonce: 0,
-      gasPrice: '1000000',
-      gasLimit: '2000000',
-      contract: { function: functionName, args: JSON.stringify(args) },
-    };
-    const { body } = await request
-      .post(`${api}/v1/user/call`)
-      .send(Object.assign({ from, to }, txParams));
-
-    return body.result.result;
+    const { contractAddress } = this;
+    return Nasa.query(contractAddress, functionName, args);
   }
-  // async call({
-  //   // from = 'n1Z6SbjLuAEXfhX1UJvXT6BB5osWYxVg3F3', //
-  //   functionName,
-  //   value = '0',
-  //   args = [],
-  // }) {
-  //   const result = await nebPay.simulateCall(this.contractAddress, value, functionName, args, {
-  //     // desc: 'test goods',
-  //   });
-  //   return result;
-  // }
   /**
      * send({ functionName, value = 0, data, options = { listener: undefined } }})
      * Send tx to a smart contract function.
@@ -69,14 +42,15 @@ export default class Contract {
      * @param: data - Function arguement, please enter arguement in ordered array
      * @param: options - please check https://github.com/nebulasio/nebPay/blob/master/doc/NebPay%E4%BB%8B%E7%BB%8D.md#options
      */
-  async send({ functionName, value = 0, data = [], options = { listener: undefined } }) {
-    const to = this.contractAddress;
-    const resp = await nebPay.call(
-      to,
-      value,
-      functionName,
-      JSON.stringify(data),
-      options);
-    return resp;
+  async send({ functionName, value = 0, data = [] }) {
+    const { contractAddress } = this;
+    return Nasa.call(contractAddress, functionName, data, { value });
+    // const resp = await nebPay.call(
+    //   to,
+    //   value,
+    //   functionName,
+    //   JSON.stringify(data),
+    //   options);
+    // return resp;
   }
 }

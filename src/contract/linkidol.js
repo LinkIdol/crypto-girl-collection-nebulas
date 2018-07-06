@@ -28,40 +28,35 @@ export default class LinkIdolContract extends Contract {
   }
 
   async getCardsLeft() {
-    const result = await this.call({ functionName: 'getCardsLeft' });
-    return JSON.parse(result);
+    return this.call({ functionName: 'getCardsLeft' });
   }
 
   async getPrice() {
-    const result = await this.call({ functionName: 'getDrawPrice' });
-    return JSON.parse(result);
+    return this.call({ functionName: 'getDrawPrice' });
   }
 
   async getTokenIDsByAddress(address) {
-    const result = await this.call(
+    return this.call(
       {
         functionName: 'getTokenIDsByAddress',
         args: [address],
       });
-    return JSON.parse(result);
   }
 
   async getCardsByAddress(address) {
-    const result = await this.call(
+    return this.call(
       {
         functionName: 'getCardsByAddress',
         args: [address],
       });
-    return JSON.parse(result);
   }
 
   async getCardNameByTokenId(id) {
-    const result = await this.call(
+    return this.call(
       {
         functionName: 'getCardNameByTokenId',
         args: [id],
       });
-    return JSON.parse(result);
   }
   // async getCardsInfoByAddress(address) {
   //   const ids = await this.getTokenIDsByAddress(address);

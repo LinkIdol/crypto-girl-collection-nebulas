@@ -11,6 +11,6 @@ export default class NasId extends Contract {
       return null;
     }
     const result = await this.call({ from: address, functionName: 'get' });
-    return JSON.parse(result);
+    return result;
   }
 }
